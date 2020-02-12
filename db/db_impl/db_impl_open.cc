@@ -1309,8 +1309,8 @@ Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr) {
   ColumnFamilyOptions cf_options(options);
 
 #if RANDOM_PATH
-  cf_options.cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path1", 100llu<<30}));
-  cf_options.cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path2", 100llu<<30}));
+  cf_options.cf_paths.push_back(DbPath({"/nvme0/koo/path", 100llu<<30}));
+  cf_options.cf_paths.push_back(DbPath({"/nvme1/koo/path", 100llu<<30}));
 #endif
 
   std::vector<ColumnFamilyDescriptor> column_families;
