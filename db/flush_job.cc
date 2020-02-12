@@ -187,7 +187,7 @@ void FlushJob::PickMemTable() {
 
 #if RANDOM_PATH
 	uint64_t new_number = versions_->NewFileNumber();
-	meta_.fd = FileDescriptor(new_number, new_number%2, 0);
+	meta_.fd = FileDescriptor(new_number, 0, 0);
 #else
  	// path 0 for level 0 file.
 	meta_.fd = FileDescriptor(versions_->NewFileNumber(), 0, 0);
