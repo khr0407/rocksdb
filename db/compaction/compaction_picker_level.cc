@@ -414,7 +414,7 @@ uint32_t LevelCompactionBuilder::GetPathId(
   assert(!ioptions.cf_paths.empty());
 
 #if RANDOM_PATH
-	p = level + 1;
+	p = level % ioptions.cf_paths.size();
 	return p;
 #endif
 

@@ -147,7 +147,7 @@ class WriteStress {
 
     // open DB
     DB* db;
-#if RANDOM_PATH
+#if RANDOM_PATH_1
 		std::vector<DbPath> cf_paths;
 		cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path1", 10llu<<30}));
 		cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path2", 10llu<<30}));

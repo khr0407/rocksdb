@@ -142,7 +142,7 @@ class DB {
   static Status Open(const Options& options, const std::string& name,
                      DB** dbptr);
 
-#if RANDOM_PATH
+#if RANDOM_PATH_1
 		static Status Open(const Options& options, const std::string& name, DB** dbptr, std::vector<DbPath> cf_paths);
 #endif
 

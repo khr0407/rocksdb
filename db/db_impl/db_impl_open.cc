@@ -1278,7 +1278,7 @@ Status DBImpl::WriteLevel0TableForRecovery(int job_id, ColumnFamilyData* cfd,
   return s;
 }
 
-#if RANDOM_PATH
+#if RANDOM_PATH_1
 Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr, std::vector<DbPath> cf_paths) {
 	DBOptions db_options(options);
 	ColumnFamilyOptions cf_options(options);
@@ -1307,6 +1307,12 @@ Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr, s
 Status DB::Open(const Options& options, const std::string& dbname, DB** dbptr) {
   DBOptions db_options(options);
   ColumnFamilyOptions cf_options(options);
+
+#if RANDOM_PATH
+  cf_options.cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path1", 100llu<<30}));
+  cf_options.cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path2", 100llu<<30}));
+#endif
+
   std::vector<ColumnFamilyDescriptor> column_families;
   column_families.push_back(
       ColumnFamilyDescriptor(kDefaultColumnFamilyName, cf_options));

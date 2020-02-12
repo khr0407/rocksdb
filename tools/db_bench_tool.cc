@@ -4046,7 +4046,7 @@ class Benchmark {
             FLAGS_secondary_update_interval, db));
       }
 #endif  // ROCKSDB_LITE
-#if RANDOM_PATH
+#if RANDOM_PATH_1
 		} else {
 			std::vector<DbPath> cf_paths;
 			cf_paths.push_back(DbPath({"/rocksdb_tests/path_test/path1", 10llu<<30}));
